@@ -15,7 +15,6 @@ public class Calculadora {
         FrmCalculadora calc = new FrmCalculadora();
         calc.setLocationRelativeTo(calc);
         calc.setTitle("Calculadora Científica");
-        calc.setBackground(Color.yellow);
         calc.setVisible(true);
     }
 }

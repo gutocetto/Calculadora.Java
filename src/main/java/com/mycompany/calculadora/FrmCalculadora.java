@@ -4,6 +4,8 @@
  */
 package com.mycompany.calculadora;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author 08152
@@ -15,12 +17,13 @@ public class FrmCalculadora extends javax.swing.JFrame {
      */
     public FrmCalculadora() {
         initComponents();
+        display.requestFocus();
     }
 
     double valor1 = 0;
     double valor2 = 0;
     double resultado = 0;
-    String opercao = "";
+    String operacao = "";
     String strVisor = "";
     
     
@@ -58,7 +61,6 @@ public class FrmCalculadora extends javax.swing.JFrame {
         setTitle("calculadora");
 
         display.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        display.setText("jTextField1");
         display.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 displayActionPerformed(evt);
@@ -95,6 +97,11 @@ public class FrmCalculadora extends javax.swing.JFrame {
         btnMinus.setBackground(new java.awt.Color(204, 204, 204));
         btnMinus.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         btnMinus.setText("-");
+        btnMinus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMinusActionPerformed(evt);
+            }
+        });
 
         btn7.setBackground(new java.awt.Color(204, 204, 204));
         btn7.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
@@ -162,6 +169,11 @@ public class FrmCalculadora extends javax.swing.JFrame {
         btnDot.setBackground(new java.awt.Color(204, 204, 204));
         btnDot.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         btnDot.setText(".");
+        btnDot.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDotActionPerformed(evt);
+            }
+        });
 
         btnDiv.setBackground(new java.awt.Color(204, 204, 204));
         btnDiv.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
@@ -175,14 +187,29 @@ public class FrmCalculadora extends javax.swing.JFrame {
         btnTimes.setBackground(new java.awt.Color(204, 204, 204));
         btnTimes.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         btnTimes.setText("x");
+        btnTimes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTimesActionPerformed(evt);
+            }
+        });
 
         btnClear.setBackground(new java.awt.Color(204, 204, 204));
         btnClear.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         btnClear.setText("Limpar");
+        btnClear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnClearActionPerformed(evt);
+            }
+        });
 
         jButton16.setBackground(new java.awt.Color(204, 204, 204));
         jButton16.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         jButton16.setText("=");
+        jButton16.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton16ActionPerformed(evt);
+            }
+        });
 
         btn0.setBackground(new java.awt.Color(204, 204, 204));
         btn0.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
@@ -287,69 +314,170 @@ public class FrmCalculadora extends javax.swing.JFrame {
         // TODO add your handling code here:
         strVisor = strVisor + "2";
         display.setText(strVisor);
+        display.requestFocus();
     }//GEN-LAST:event_btn2ActionPerformed
 
     private void btnPlusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlusActionPerformed
         // TODO add your handling code here:
+        operacao = "plus";
+        valor1 = Double.valueOf(display.getText());
+        display.setText("");
+        strVisor = "";
+        display.setText("");
     }//GEN-LAST:event_btnPlusActionPerformed
 
     private void btnDivActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDivActionPerformed
         // TODO add your handling code here:
+        operacao = "divide";
+        valor1 = Double.valueOf(display.getText());
+        display.setText("");
+        strVisor = "";
+        display.setText("");
     }//GEN-LAST:event_btnDivActionPerformed
 
     private void btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1ActionPerformed
         // TODO add your handling code here:
         strVisor = strVisor + "1";
         display.setText(strVisor);
+        display.requestFocus();
     }//GEN-LAST:event_btn1ActionPerformed
 
     private void btn0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn0ActionPerformed
         // TODO add your handling code here:
         strVisor = strVisor + "0";
         display.setText(strVisor);
+        display.requestFocus();
     }//GEN-LAST:event_btn0ActionPerformed
 
     private void btn7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn7ActionPerformed
         // TODO add your handling code here:
         strVisor = strVisor + "7";
         display.setText(strVisor);
+        display.requestFocus();
     }//GEN-LAST:event_btn7ActionPerformed
 
     private void btn3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn3ActionPerformed
         // TODO add your handling code here:
         strVisor = strVisor + "3";
         display.setText(strVisor);
+        display.requestFocus();
     }//GEN-LAST:event_btn3ActionPerformed
 
     private void btn4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn4ActionPerformed
         // TODO add your handling code here:
         strVisor = strVisor + "4";
         display.setText(strVisor);
+        display.requestFocus();
     }//GEN-LAST:event_btn4ActionPerformed
 
     private void btn5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn5ActionPerformed
         // TODO add your handling code here:
         strVisor = strVisor + "5";
         display.setText(strVisor);
+        display.requestFocus();
     }//GEN-LAST:event_btn5ActionPerformed
 
     private void btn6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn6ActionPerformed
         // TODO add your handling code here:
         strVisor = strVisor + "6";
         display.setText(strVisor);
+        display.requestFocus();
+        display.requestFocus();
     }//GEN-LAST:event_btn6ActionPerformed
 
     private void btn8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn8ActionPerformed
         // TODO add your handling code here:
         strVisor = strVisor + "8";
         display.setText(strVisor);
+        display.requestFocus();
     }//GEN-LAST:event_btn8ActionPerformed
 
     private void btn9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn9ActionPerformed
         // TODO add your handling code here:
         strVisor = strVisor + "9";
         display.setText(strVisor);
+        display.requestFocus();
     }//GEN-LAST:event_btn9ActionPerformed
+
+    private void btnDotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDotActionPerformed
+        // TODO add your handling code here:
+        strVisor = strVisor + ".";
+        display.setText(strVisor);
+        display.requestFocus();
+    }//GEN-LAST:event_btnDotActionPerformed
+
+    private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed
+        // TODO add your handling code here:
+        display.setText("");
+        strVisor = "";
+        display.requestFocus();
+    }//GEN-LAST:event_btnClearActionPerformed
+
+    private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
+        // TODO add your handling code here:
+        valor2 = Double.valueOf(display.getText());
+        strVisor = "";
+        /*
+        if(operacao.equals("plus")){
+        resultado = valor1 + valor2;}
+        if(operacao.equals("minus")){
+        resultado = valor1 - valor2;}
+        if(operacao.equals("times")){
+        resultado = valor1 * valor2;}
+        if(operacao.equals("divide")){
+        resultado = valor1 / valor2;}
+        if(valor2 != 0){resultado = valor1 / valor2;}else{JOptionPane.showMessageDialog(null,"Erro");
+        strVisor = "";
+        display.setText(strVisor);
+        valor2 = 0;
+        resultado = 0;
+        }
+        */
+        switch(operacao){
+            case "plus":
+                resultado = valor1 + valor2;
+                break;
+            case "minus":
+                resultado = valor1 - valor2;
+                break;
+            case "times":
+                resultado = valor1 * valor2;
+                break;
+            case "divide":
+                if(valor2 != 0){resultado = valor1 / valor2;}
+                else{JOptionPane.showMessageDialog(null,"Erro");
+                
+                strVisor = "";
+                display.setText(strVisor);
+                valor2 = 0;
+                resultado = 0;
+                }
+                break;
+                default:
+                    resultado = 0;
+                    break;
+        }
+        
+        display.setText(String.valueOf(resultado));
+    }//GEN-LAST:event_jButton16ActionPerformed
+
+    private void btnMinusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMinusActionPerformed
+        // TODO add your handling code here:
+        operacao = "minus";
+        valor1 = Double.valueOf(display.getText());
+        display.setText("");
+        strVisor = "";
+        display.setText("");
+    }//GEN-LAST:event_btnMinusActionPerformed
+
+    private void btnTimesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTimesActionPerformed
+        // TODO add your handling code here:
+        operacao = "times";
+        valor1 = Double.valueOf(display.getText());
+        display.setText("");
+        strVisor = "";
+        display.setText("");
+    }//GEN-LAST:event_btnTimesActionPerformed
 
     /**
      * @param args the command line arguments
